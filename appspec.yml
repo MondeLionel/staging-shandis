@@ -1,0 +1,22 @@
+version: 0.0
+
+os: linux
+
+files:
+ 
+  - source: /index.html
+    destination: /var/www/html/
+
+hooks:
+
+   BeforeInstall:
+
+	- location: deploy/before_start
+	- timeout: 300
+	- runas: root
+
+   AferInstall:
+	- location: deploy/after_start
+	- timeout: 300
+	- runas: root
+
